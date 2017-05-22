@@ -20,4 +20,4 @@
       line: "{{ item }}"
     with_items:
        - 'getip() { (traceroute $1 2>&1 | head -n 1 | cut -d\( -f 2 | cut -d\) -f 1) }'
-       - 'genpasswd() { local l=$1 [ "$l" == "" ] && l=8 tr -dc A-Za-z0-9_.$!- < /dev/urandom | head -c ${l} | xargs }'
+       - 'genpasswd() { (local l=$1; [ "$l" == "" ] && l=8; tr -dc A-Za-z0-9_.$!- < /dev/urandom | head -c "${l}" | xargs) }'
