@@ -1,23 +1,16 @@
-- hosts: myworkstation
-  vars:
-    shell_config_file: ~/.bashrc
-  tasks:
-  - name: Only update apt cache if the last one is more than 3600 seconds ago
-    become: yes
-    become_method: sudo
-    apt:
-      update_cache: yes
-      cache_valid_time: 3600
-  - name: Install traceroute
-    become: yes
-    become_method: sudo
-    apt:
-      name: traceroute
-      state: present
-  - name: add getip function to the shell setup
-    lineinfile:
-      path: "{{ shell_config_file }}"
-      line: "{{ item }}"
-    with_items:
-       - 'getip() { (traceroute $1 2>&1 | head -n 1 | cut -d\( -f 2 | cut -d\) -f 1) }'
-       - 'genpasswd() { (local l=$1; [ "$l" == "" ] && l=8; tr -dc A-Za-z0-9_.$!- < /dev/urandom | head -c "${l}" | xargs) }'
+
+- name: Install traceroute
+  become: yes
+  apt:
+    name: traceroute
+    state: present
+
+- name: add getip function to the shell setup
+  become: yes
+  become_user: "{{ user_name }}"
+  lineinfile:
+    path: "{{ shell_config_file }}"
+    line: "{{ item }}"
+  with_items:
+     - 'getip() { (traceroute $1 2>&1 | head -n 1 | cut -d\( -f 2 | cut -d\) -f 1) }'
+     - 'genpasswd() { (local l=$1; [ "$l" == "" ] && l=8; tr -dc A-Za-z0-9_.$!- < /dev/urandom | head -c "${l}" | xargs) }'

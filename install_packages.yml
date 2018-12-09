@@ -1,0 +1,86 @@
+
+- name: prerequisites
+  apt:
+    name: "{{ packages }}"
+    state: present
+  become: yes
+  vars:
+    packages:
+    - apt-utils
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name: install utilities
+  apt:
+    name: "{{ packages }}"
+    state: present
+  become: yes
+  vars:
+    packages:
+    - build-essential
+    - bzip2    
+    - emacs
+    - git
+    - mercurial
+    - nano
+    - ntp
+    - ntpdate
+    - redshift
+    - rsync
+    - pep8
+    - pyflakes
+    - pylint
+    - python-pip
+    - synaptic
+    - traceroute
+    - unrar
+    - unzip
+    - virtualenv
+    - wget
+
+- name: install clients
+  apt:
+    name: "{{ packages }}"
+    state: present
+  become: yes
+  vars:
+    packages:
+    - openssh-client
+    - openvpn
+    - owncloud-client
+    - pgadmin3
+    - postgresql-client-common
+
+- name: install servers
+  apt:
+    name: "{{ packages }}"
+    state: present
+  become: yes
+  vars:
+    packages:
+    - openssh-server
+
+- name: install virtual
+  apt:
+    name: "{{ packages }}"
+    state: present
+  become: yes
+  vars:
+    packages:
+    - virtualbox
+    - wine-stable
+
+- name: install application
+  apt:
+    name: "{{ packages }}"
+    state: present
+  become: yes
+  vars:
+    packages:
+    - chromium-browser
+    - filezilla
+    - firefox
+    - thunderbird
+    - terminator

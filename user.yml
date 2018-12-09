@@ -1,0 +1,17 @@
+---
+# Add normal user
+
+- name: Add group
+  group:
+    name: "{{ group_name }}"
+    gid: "{{ group_gid }}"
+  become: yes
+
+- name: Add user
+  user:
+    name: "{{ user_name }}"
+    home: "{{ user_home }}"
+    uid: "{{ user_uid }}"
+    shell: "{{ user_shell }}"
+    group: "{{ group_name }}"
+  become: yes

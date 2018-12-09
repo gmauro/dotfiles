@@ -1,0 +1,12 @@
+[submodule "roles/playonlinux"]
+	path = roles/playonlinux
+	url = https://github.com/gmauro/ansible-playonlinux
+[submodule "roles/docker"]
+	path = roles/docker
+	url = https://github.com/gmauro/ansible-docker
+[submodule "roles/java"]
+	path = roles/java
+	url = https://github.com/gmauro/ansible-java
+[submodule "roles/miniconda"]
+	path = roles/miniconda
+	url = https://github.com/gmauro/ansible-miniconda

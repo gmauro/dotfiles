@@ -1,0 +1,24 @@
+---
+# Control flow variables
+bash_setup: yes
+install_packages: yes
+
+# User
+user_name: username
+user_uid: 1010
+user_home: /home/username
+user_shell: /bin/bash
+shell_config_file: "{{ user_home }}/.bashrc"
+group_name: groupname
+group_gid: 1010
+
+# Conda
+miniconda_url: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+miniconda_home: "{{ user_home }}/miniconda"
+miniconda_modify_path: yes
+miniconda_rcfile: "{{ shell_config_file }}"
+miniconda_add_condarc: no
+miniconda_environments:
+  - name: debug
+    python_version: 3.6
+    pkgs: 'pip ipython'

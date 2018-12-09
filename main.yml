@@ -1,0 +1,42 @@
+- hosts: myworkstation
+  vars_files:
+    - vars/main.yml
+  pre_tasks:
+    - name: Only update apt cache if the last one is more than 3600 seconds ago
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+      become: yes
+    - include_tasks: user.yml
+    - name: copying condarc file
+      copy:
+        src: condarc
+        dest: "{{ user_home }}/.condarc"
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}"
+        mode: 0644
+      become: yes
+    - include_tasks: install_packages.yml
+      when: install_packages
+    - include_tasks: bash_setup.yml
+      when: bash_setup
+  roles:
+    - role: docker
+      become: yes
+    - role: playonlinux
+      become: yes
+    - role: java
+      become: yes
+    - role: miniconda
+      become: yes
+      become_method: su
+      become_user: "{{ user_name }}"
+  post_tasks:
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
+      become: yes
+    - name: Remove dependencies that are no longer required
+      apt:
+        autoremove: yes
+      become: yes
