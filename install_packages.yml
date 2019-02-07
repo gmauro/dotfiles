@@ -72,7 +72,7 @@
     - virtualbox
     - wine-stable
 
-- name: install application
+- name: install applications via apt
   apt:
     name: "{{ packages }}"
     state: present
@@ -84,3 +84,13 @@
     - firefox
     - thunderbird
     - terminator
+
+- name: install applications via snap (classic confinment)
+  command: snap install {{ packages }} --classic
+  become: yes
+  vars:
+    packages:
+    - kubectl
+    - pycharm-community
+    - skype
+    - slack
