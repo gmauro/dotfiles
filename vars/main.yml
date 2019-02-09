@@ -2,11 +2,13 @@
 # Control flow variables
 bash_setup: yes
 install_packages: yes
+packages_state: present
+update_cache: yes
 
 # User
 user_name: username
 user_uid: 1010
-user_home: /home/username
+user_home: "/home/{{ user_name }}"
 user_shell: /bin/bash
 shell_config_file: "{{ user_home }}/.bashrc"
 group_name: groupname
