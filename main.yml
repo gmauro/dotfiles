@@ -2,6 +2,7 @@
   vars_files:
     - vars/main.yml
   pre_tasks:
+    - include_tasks: apt_repositories.yml
     - name: Only update apt cache if the last one is more than 3600 seconds ago
       apt:
         update_cache: yes

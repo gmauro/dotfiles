@@ -9,15 +9,3 @@
     repo: 'deb https://apt.enpass.io/ stable main'
     state: "{{ packages_state }}"
   filename: enpass
-
-- name: Update apt cache
-  apt:
-    update_cache: "{{ update_cache }}"
-
-- name: install packages
-  apt:
-    name: "{{ packages }}"
-    state: "{{ packages_state }}"
-  vars:
-    packages:
-    - enpass

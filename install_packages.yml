@@ -80,6 +80,7 @@
   vars:
     packages:
     - chromium-browser
+    - enpass
     - filezilla
     - firefox
     - thunderbird
