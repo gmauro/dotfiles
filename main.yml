@@ -28,7 +28,7 @@
         group: "{{ group_name }}"
         mode: 0644
       with_items:
-        - { src: gitconfig, dst: .gitconfig }
+        - { src: gitconfig.j2, dst: .gitconfig }
 
     - include_tasks: install_packages.yml
       when: install_packages
