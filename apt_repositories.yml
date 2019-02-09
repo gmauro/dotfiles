@@ -8,4 +8,4 @@
   apt_repository:
     repo: 'deb https://apt.enpass.io/ stable main'
     state: "{{ packages_state }}"
-  filename: enpass
+    filename: enpass
