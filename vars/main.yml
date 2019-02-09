@@ -6,6 +6,8 @@ packages_state: present
 update_cache: yes
 
 # User
+name: name
+email: email
 user_name: username
 user_uid: 1010
 user_home: "/home/{{ user_name }}"

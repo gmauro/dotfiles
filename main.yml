@@ -10,13 +10,26 @@
       become: yes
     - include_tasks: user.yml
     - name: copying condarc file
+      become: yes
       copy:
-        src: condarc
-        dest: "{{ user_home }}/.condarc"
+        src: "{{ item.src }}"
+        dest: "{{ user_home }}/{{ item.dst }}"
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
         mode: 0644
+      with_items:
+        - { src: condarc, dst: .condarc }
+    - name: copying gitconfig file
       become: yes
+      template:
+        src: "{{ item.src }}"
+        dest: "{{ user_home }}/{{ item.dst }}"
+        owner: "{{ user_name }}"
+        group: "{{ group_name }}"
+        mode: 0644
+      with_items:
+        - { src: gitconfig, dst: .gitconfig }
+
     - include_tasks: install_packages.yml
       when: install_packages
     - include_tasks: bash_setup.yml

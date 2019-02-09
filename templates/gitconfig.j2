@@ -1,0 +1,15 @@
+[user]
+email = {{ email }}
+name = {{ name }}
+
+[push]
+default = simple
+
+[credential]
+helper = cache --timeout=3600
+
+[alias]
+graph = log --date-order --graph --pretty='format:%C(blue)%h%C(red)%d%C(yellow) %s %C(green)%an%Creset, %ar'
+lg = log --color --date-order --decorate --oneline
+st = status
+
