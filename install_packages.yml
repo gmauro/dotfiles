@@ -50,6 +50,7 @@
     - openssh-client
     - openvpn
     - owncloud-client
+    - libgnome-keyring0
     - pgadmin3
     - postgresql-client-common
 
