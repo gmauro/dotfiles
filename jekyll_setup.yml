@@ -1,0 +1,28 @@
+ name: install Jekyll dependecies
+  apt:
+    name: "{{ packages }}"
+    state: "{{ packages_state }}"
+  become: yes
+  vars:
+    packages:
+      - build-essential
+      - ruby-full
+      - zlib1g-dev
+
+- name: configure the gem installation path
+  become: yes
+  become_user: "{{ user_name }}"
+  lineinfile:
+    path: "{{ shell_config_file }}"
+    line: "{{ item }}"
+  with_items:
+    - '# Install Ruby Gems to ~/gems'
+    - 'export GEM_HOME="$HOME/gems"'
+    - 'export PATH="$HOME/gems/bin:$PATH"'
+
+- name: install Jekyll
+  become: yes
+  become_user: "{{ user_name }}"
+  gem:
+    name: jekyll bundler
+    state: "{{ packages_state }}"

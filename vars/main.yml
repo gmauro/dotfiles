@@ -2,6 +2,7 @@
 # Control flow variables
 bash_setup: yes
 install_packages: yes
+jekyll_setup: yes
 packages_state: present
 update_cache: yes
 

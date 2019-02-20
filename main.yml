@@ -34,6 +34,8 @@
       when: install_packages
     - include_tasks: bash_setup.yml
       when: bash_setup
+    - include_tasks: jekyll_setup.yml
+      when: jekyll_setup
   roles:
     - role: docker
       become: yes
