@@ -1,13 +1,13 @@
  name: install Jekyll dependecies
-  apt:
-    name: "{{ packages }}"
-    state: "{{ packages_state }}"
-  become: yes
-  vars:
-    packages:
-      - build-essential
-      - ruby-full
-      - zlib1g-dev
+ apt:
+   name: "{{ packages }}"
+   state: "{{ packages_state }}"
+ become: yes
+ vars:
+   packages:
+   - build-essential
+   - ruby-full
+   - zlib1g-dev
 
 - name: configure the gem installation path
   become: yes
