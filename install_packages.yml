@@ -25,6 +25,7 @@
     - git
     - mercurial
     - nano
+    - net-tools
     - ntp
     - ntpdate
     - redshift
@@ -33,8 +34,10 @@
     - pyflakes
     - pylint
     - python-pip
+    - speedtest-cli
     - synaptic
     - traceroute
+    - ubuntu-restricted-extras
     - unrar
     - unzip
     - virtualenv
