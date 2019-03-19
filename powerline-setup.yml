@@ -1,0 +1,30 @@
+# see https://github.com/b-ryan/powerline-shell
+
+- name: install Powerline dependecies
+  apt:
+    name: "{{ packages }}"
+    state: "{{ packages_state }}"
+  become: yes
+  vars:
+    packages:
+    - fonts-powerline
+
+- name: install Powerline
+  become: yes
+  become_user: "{{ user_name }}"
+  pip:
+    name: powerline-shell
+    extra_args: --user
+
+- name: add Powerline configuration
+  become: yes
+  become_user: "{{ user_name }}"
+  lineinfile:
+    path: "{{ shell_config_file }}"
+    line: "{{ item }}"
+  with_items:
+    - 'function _update_ps1() { PS1=$(powerline-shell $?) }'
+    - 'if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then \
+           PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND" \
+       fi'
+

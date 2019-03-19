@@ -3,19 +3,20 @@
 bash_setup: yes
 install_packages: yes
 jekyll_setup: yes
+powerline_setup: yes
 packages_state: present
 update_cache: yes
 
 # User
-_name_: name
-email: email
-user_name: username
-user_uid: 1010
+_name_: "Gianmauro Cuccuru"
+email: gmauro@gmail.com
+user_name: gmauro
+user_uid: 1001
 user_home: "/home/{{ user_name }}"
 user_shell: /bin/bash
 shell_config_file: "{{ user_home }}/.bashrc"
-group_name: groupname
-group_gid: 1010
+group_name: gmauro
+group_gid: 1001
 
 # Conda
 miniconda_url: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
