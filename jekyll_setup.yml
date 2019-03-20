@@ -23,6 +23,6 @@
 - name: install Jekyll
   become: yes
   become_user: "{{ user_name }}"
-  shell: " GEM_HOME={{ user_home }}/.gems gem install jekyll bundler"
+  shell: " GEM_HOME={{ user_home }}/.gems gem install jekyll bundler github-pages"
   args:
      executable: "{{ user_shell }}"
