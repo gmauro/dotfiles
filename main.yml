@@ -50,6 +50,11 @@
       become_method: su
       become_user: "{{ user_name }}"
   post_tasks:
+    - name: "ensure user part of docker group"
+      user:
+        name: "{{ user_name }}"
+        groups: docker
+        append: yes
     - name: Remove useless packages from the cache
       apt:
         autoclean: yes
