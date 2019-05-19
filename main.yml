@@ -38,6 +38,8 @@
       when: jekyll_setup
     - include_tasks: powerline_setup.yml
       when: powerline_setup
+    - include_tasks: ssh.yml
+      when: ssh_setup
   roles:
     - role: docker
       become: yes

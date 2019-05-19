@@ -6,6 +6,7 @@ jekyll_setup: yes
 powerline_setup: yes
 packages_state: present
 update_cache: yes
+ssh_setup: yes
 
 # User
 _name_: "Gianmauro Cuccuru"

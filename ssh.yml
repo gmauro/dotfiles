@@ -1,0 +1,5 @@
+- name: set ServerAliveInterval
+  become: yes
+  lineinfile:
+    path: /etc/ssh/ssh_config
+    line: "    ServerAliveInterval 120"
