@@ -2,6 +2,14 @@
   vars_files:
     - vars/main.yml
   pre_tasks:
+    - name: install utilities
+      apt:
+        name: "{{ packages }}"
+        state: present
+      become: yes
+      vars:
+        packages:
+        - gpg
     - include_tasks: apt_repositories.yml
     - name: Only update apt cache if the last one is more than 3600 seconds ago
       apt:
