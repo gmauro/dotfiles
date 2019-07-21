@@ -1,0 +1,4 @@
+- src: https://github.com/gmauro/ansible-docker.git
+  name: docker
+  version: 8656bd006b2de6c4cb1bb8337aaa9fdc9d6c3718
+  
