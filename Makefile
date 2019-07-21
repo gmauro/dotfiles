@@ -16,5 +16,6 @@ clean:
 	rm -rf roles
 
 install_roles:
+	mkdir -p roles
 	ansible-galaxy install -p roles -r requirements.yml
 
