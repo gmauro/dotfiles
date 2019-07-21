@@ -9,7 +9,7 @@ help:
 apply: install_roles
 	ansible-playbook main.yml
 
-check:
+check: install_roles
 	ansible-playbook -C -i inventory main.yml
 
 clean:

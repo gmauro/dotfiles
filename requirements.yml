@@ -1,4 +1,13 @@
 - src: https://github.com/gmauro/ansible-docker.git
   name: docker
   version: 8656bd006b2de6c4cb1bb8337aaa9fdc9d6c3718
-  
+- src: https://github.com/gmauro/ansible-java.git
+  name: java
+  version: 2253de1833366fa01c165fd4619e0ce3cd77c702
+- src: https://github.com/gmauro/ansible-miniconda.git
+  name: miniconda
+  version: e5ec1135298874e8cd52d32a13e5a31290706664
+- src: https://github.com/gmauro/ansible-playonlinux.git
+  name: playonlinux
+  version: 1ab5b48a4ce60ee14b2edd827a45765362d6933d
+
