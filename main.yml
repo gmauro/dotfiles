@@ -39,15 +39,18 @@
         - { src: gitconfig.j2, dst: .gitconfig }
 
     - include_tasks: install_packages.yml
-      when: install_packages
+      when: install_packages | bool
+    - include_tasks: clients.yml
+      when: install_clients | bool
     - include_tasks: bash_setup.yml
-      when: bash_setup
+      when: bash_setup | bool
     - include_tasks: jekyll_setup.yml
-      when: jekyll_setup
+      when: jekyll_setup | bool
     - include_tasks: powerline_setup.yml
-      when: powerline_setup
+      when: powerline_setup | bool
     - include_tasks: ssh.yml
-      when: ssh_setup
+      when: ssh_setup | bool
+
   roles:
     - role: docker
       become: yes

@@ -2,6 +2,7 @@
 # Control flow variables
 bash_setup: yes
 install_packages: yes
+install_clients: yes
 jekyll_setup: yes
 powerline_setup: yes
 packages_state: present
@@ -18,6 +19,9 @@ user_shell: /bin/bash
 shell_config_file: "{{ user_home }}/.bashrc"
 group_name: gmauro
 group_gid: 1001
+
+# Paths
+local_bin_path: "{{ user_home }}/.local/bin"
 
 # Conda
 miniconda_url: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
