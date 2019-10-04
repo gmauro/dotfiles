@@ -8,6 +8,7 @@ powerline_setup: yes
 packages_state: present
 update_cache: yes
 ssh_setup: yes
+utilities_setup: yes
 
 # User
 _name_: "Gianmauro Cuccuru"
