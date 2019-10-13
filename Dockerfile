@@ -5,4 +5,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN git clone --recursive https://github.com/gmauro/dotfiles \
  && cd dotfiles \
- && make apply
+ && mkdir -p roles \
+ &&	ansible-galaxy install -p roles -r requirements.yml \
+ && ansible-playbook main.yml
+
+
