@@ -1,5 +1,5 @@
-#https://emacs.stackexchange.com/questions/3618/launch-emacs-with-ediff-files-of-ediff-directories-from-command-line
 #!/bin/sh
+# https://emacs.stackexchange.com/questions/3618/launch-emacs-with-ediff-files-of-ediff-directories-from-command-line
 
 EMACS=$(which emacs)
 

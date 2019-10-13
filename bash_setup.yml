@@ -1,11 +1,22 @@
 
+- name: copy bash_aliases file
+  become: yes
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ user_home }}/{{ item.dst }}"
+    owner: "{{ user_name }}"
+    group: "{{ group_name }}"
+    mode: 0644
+  with_items:
+    - { src: bash_aliases, dst: .bash_aliases }
+
 - name: Install traceroute
   become: yes
   apt:
     name: traceroute
     state: present
 
-- name: add getip function to the shell setup
+- name: add functions to the shell setup
   become: yes
   become_user: "{{ user_name }}"
   lineinfile:
@@ -16,4 +27,4 @@
      - 'genpasswd() { (local l=$1; [ "$l" == "" ] && l=8; tr -dc A-Za-z0-9_.$!- < /dev/urandom | head -c "${l}" | xargs) }'
      - 'docker_prune() { (docker system prune -f) }'
      - 'docker_rmi_dangling() { (docker rmi $(docker images -qaf "dangling=true")) }'
-     - "docker_rmi_all() { (docker images | grep $1 | perl -n -e '@a = split; print \"$a[0]:$a[1]\n\"' | xargs docker rmi) }"
+     - "docker_rmi_all() { (docker images | grep $1 | perl -n -e '@a = split; print \"$a[0]:$a[1]\"' | xargs docker rmi) }"
