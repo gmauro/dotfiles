@@ -67,8 +67,8 @@
       become: yes
     - role: playonlinux
       become: yes
-    - role: java
-      become: yes
+#    - role: java
+#      become: yes
     - role: miniconda
       become: yes
       become_method: su
