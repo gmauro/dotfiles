@@ -45,4 +45,4 @@ miniconda_home_dir:
   group: "{{ group_name }}"
 paths:
   - [ "{{ local_bin_dir.path }}", "{{ local_bin_dir.mode }}", "{{ local_bin_dir.owner }}", "{{ local_bin_dir.group }}" ]
-  - [ "{{ miniconda_home_dir.path }}", " {{ miniconda_home_dir.mode }}", " {{ miniconda_home_dir.owner }}", " {{ miniconda_home_dir.group }}"]
+  - [ "{{ miniconda_home_dir.path }}", "{{ miniconda_home_dir.mode }}", "{{ miniconda_home_dir.owner }}", "{{ miniconda_home_dir.group }}" ]
