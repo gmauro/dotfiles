@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN git clone --recursive https://github.com/gmauro/dotfiles \
  && cd dotfiles \
  && mkdir -p roles \
- && touch .vault-pass.txt \
+ && echo "test-password" > .vault-pass.txt \
  &&	ansible-galaxy install -p roles -r requirements.yml \
  && ansible-playbook main.yml --extra-vars "ssh_setup=false"
 
