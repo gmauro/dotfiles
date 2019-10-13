@@ -1,5 +1,5 @@
 - name: Download min.io client
   get_url:
     url: https://dl.min.io/client/mc/release/linux-amd64/mc
-    dest: "{{ local_bin_path }}/mc"
+    dest: "{{ local_bin_dir.path }}/mc"
     mode: '0700'

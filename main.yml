@@ -37,6 +37,12 @@
         mode: 0644
       with_items:
         - { src: gitconfig.j2, dst: .gitconfig }
+    - name: Create path if it does not exist
+      file:
+        path: "{{ item[0] }}"
+        state: directory
+        mode: "{{ item[1] }}"
+      loop: "{{ paths }}"
 
     - include_tasks: install_packages.yml
       when: install_packages | bool

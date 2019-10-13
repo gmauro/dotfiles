@@ -21,12 +21,9 @@ shell_config_file: "{{ user_home }}/.bashrc"
 group_name: gmauro
 group_gid: 1001
 
-# Paths
-local_bin_path: "{{ user_home }}/.local/bin"
-
 # Conda
 miniconda_url: http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-miniconda_home: "{{ user_home }}/miniconda"
+miniconda_home: "{{ miniconda_home_dir.path }}"
 miniconda_modify_path: yes
 miniconda_rcfile: "{{ shell_config_file }}"
 miniconda_add_condarc: no
@@ -34,3 +31,14 @@ miniconda_environments:
   - name: debug
     python_version: 3.6
     pkgs: 'pip ipython'
+
+# Directories
+local_bin_dir:
+  path: "{{ user_home }}/.local/bin"
+  mode: '0755'
+miniconda_home_dir:
+  path: "{{ user_home }}/miniconda"
+  mode: '0775'
+paths:
+  - [ "{{ local_bin_dir.path }}", "{{ local_bin_dir.mode }}" ]
+  - [ "{{ miniconda_home_dir.path }}", " {{ miniconda_home_dir.mode }}"]
