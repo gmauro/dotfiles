@@ -5,4 +5,4 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN git clone --recursive https://github.com/gmauro/dotfiles \
  && cd dotfiles \
- && ansible-playbook main.yml 
+ && make apply
