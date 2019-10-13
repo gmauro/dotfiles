@@ -36,9 +36,13 @@ miniconda_environments:
 local_bin_dir:
   path: "{{ user_home }}/.local/bin"
   mode: '0755'
+  owner: "{{ user_name }}"
+  group: "{{ group_name }}"
 miniconda_home_dir:
   path: "{{ user_home }}/miniconda"
   mode: '0775'
+  owner: "{{ user_name }}"
+  group: "{{ group_name }}"
 paths:
-  - [ "{{ local_bin_dir.path }}", "{{ local_bin_dir.mode }}" ]
-  - [ "{{ miniconda_home_dir.path }}", " {{ miniconda_home_dir.mode }}"]
+  - [ "{{ local_bin_dir.path }}", "{{ local_bin_dir.mode }}", "{{ local_bin_dir.owner }}", "{{ local_bin_dir.group }}" ]
+  - [ "{{ miniconda_home_dir.path }}", " {{ miniconda_home_dir.mode }}", " {{ miniconda_home_dir.owner }}", " {{ miniconda_home_dir.group }}"]
