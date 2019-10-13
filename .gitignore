@@ -1,3 +1,5 @@
+.vault-pass.txt
+
 #Emacs
 *~
 
@@ -6,3 +8,6 @@
 
 # Python
 *.pyc
+
+# Ansible
+roles
