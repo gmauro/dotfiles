@@ -4,7 +4,7 @@ channels:
   - defaults
 
 create_default_packages:
-  - python=3.6
+  - python=3.8
   - pip
 
 # implies always using the --yes option whenever asked to proceed
